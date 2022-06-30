@@ -26,16 +26,16 @@ def do_loan():
     now = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     body = request.json
     transaction_id = do_transaction(SRC_BANK_ACCOUNT, body['dst_bank_account'], body['amount'], 'credit')
-    loans_query = Loans(loan_id=uuid.uuid4().hex, account_id=body['dst_bank_account'], loan_sum=body['amount'],
-                        weeks_payed=0, loan_start_date=now)
+    new_loan = Loans(loan_id=uuid.uuid4().hex, account_id=body['dst_bank_account'], loan_sum=body['amount'],
+                     weeks_payed=0, loan_start_date=now)
+    db.session.add(new_loan)
 
-    payments_query = Payments(transaction_id=transaction_id, loan_id=loans_query.loan_id, payment_sum=body['amount'],
-                              is_payment_valid=True, payment_type='credit')
+    new_payment = Payments(transaction_id=transaction_id, loan_id=loans_query.loan_id, payment_sum=body['amount'],
+                           is_payment_valid=True, payment_type='credit')
 
-    db.session.add(loans_query)
-    db.session.add(payments_query)
+    db.session.add(new_payment)
     db.session.commit()
-    weekly_debits(body['amount'], loans_query.loan_start_date, body['dst_bank_account'])
+    weekly_debits(body['amount'], new_loan.loan_start_date, body['dst_bank_account'])
     return transaction_id
 
 
