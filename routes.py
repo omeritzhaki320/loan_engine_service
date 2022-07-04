@@ -24,12 +24,14 @@ def do_loan():
                            is_payment_valid=True, payment_type='credit')
     db.session.add(new_payment)
     # Insert the Debits details to the db
-    new_debit = Debit(debit_id=uuid.uuid4().hex, payment_id=uuid.uuid4().hex, loan_id=new_loan.loan_id,
+    new_debit = Debit(debit_id=uuid.uuid4().hex, amount=body['amount'], payment_id=uuid.uuid4().hex,
+                      loan_id=new_loan.loan_id,
                       due_date=due_date, status='PENDING')
     db.session.add(new_debit)
-    db.session.commit()
+    divide_amount(body['amount'])
     return "test"
 
 
-def divide_amount():
-    pass
+def divide_amount(amount):
+    weekly_debit = amount / 12
+    return weekly_debit

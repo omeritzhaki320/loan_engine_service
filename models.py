@@ -31,6 +31,7 @@ class Payments(db.Model):
 
 class Debit(db.Model):
     debit_id = db.Column(db.String(70), nullable=False, primary_key=True)
+    amount = db.Column(db.Integer, nullable=False)
     payment_id = db.Column(db.String(70), nullable=True)
     loan_id = db.Column(db.String(70), nullable=False)
     due_date = db.Column(db.String(50), nullable=False)
