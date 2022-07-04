@@ -24,11 +24,16 @@ def do_loan():
                            is_payment_valid=True, payment_type='credit')
     db.session.add(new_payment)
     # Insert the Debits details to the db
-    new_debit = Debit(debit_id=uuid.uuid4().hex, amount=body['amount'], payment_id=uuid.uuid4().hex,
-                      loan_id=new_loan.loan_id,
-                      due_date=due_date, status='PENDING')
-    db.session.add(new_debit)
+    new_credit = Debit(debit_id=uuid.uuid4().hex, amount=body['amount'], payment_id=uuid.uuid4().hex,
+                       loan_id=new_loan.loan_id, due_date=due_date, status='SUCCEEDED')
+    db.session.add(new_credit)
     divide_amount(body['amount'])
+    for rows in range(12):
+        debits_rows = Debit(debit_id=uuid.uuid4().hex, amount=divide_amount(body['amount']),
+                            payment_id=uuid.uuid4().hex, loan_id=new_loan.loan_id, due_date=due_date, status='PENDING')
+
+        db.session.add(debits_rows)
+    db.session.commit()
     return "test"
 
 
