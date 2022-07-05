@@ -20,7 +20,7 @@ def do_loan():
     body = request.json
     transaction_id = do_transaction(SRC_BANK_ACCOUNT, body['dst_bank_account'], body['amount'], 'credit')
     # Insert the Loan details to the db
-    new_loan = Loans(id=uuid.uuid4().hex, transaction_id=uuid.uuid4().hex, amount=body['amount'],
+    new_loan = Loans(id=uuid.uuid4().hex, transaction_id=transaction_id, amount=body['amount'],
                      account=body['dst_bank_account'], weeks_payed=0, start_date=now)
     db.session.add(new_loan)
     # Insert the Payments details to the db
