@@ -14,27 +14,23 @@ class DebitStatus(str, Enum):
 
 
 class Loans(db.Model):
-    loan_id = db.Column(db.String(70), unique=True, nullable=False, primary_key=True)
-    account_id = db.Column(db.String(70), unique=True, nullable=False)
-    loan_sum = db.Column(db.Integer, nullable=False)
+    id = db.Column(db.String(70), unique=True, nullable=False, primary_key=True)
+    transaction_id = db.Column(db.String(70), unique=True, nullable=False)
+    amount = db.Column(db.Float, nullable=False)
+    account = db.Column(db.String(70), unique=True, nullable=False)
     weeks_payed = db.Column(db.Integer, nullable=False)
-    loan_start_date = db.Column(db.String(50), nullable=False)
+    start_date = db.Column(db.String(50), nullable=False)
 
 
 class Payments(db.Model):
-    transaction_id = db.Column(db.String(70), unique=True, nullable=False, primary_key=True)
+    id = db.Column(db.String(70), unique=True, nullable=False, primary_key=True)
     loan_id = db.Column(db.String(70), nullable=False)
-    payment_sum = db.Column(db.Integer, nullable=False)
-    is_payment_valid = db.Column(db.Boolean, nullable=False)
-    payment_type = db.Column(db.Enum(PaymentType), nullable=False)
-
-
-class Debit(db.Model):
-    debit_id = db.Column(db.String(70), nullable=False, primary_key=True)
-    amount = db.Column(db.Integer, nullable=False)
-    payment_id = db.Column(db.String(70), nullable=True)
-    loan_id = db.Column(db.String(70), nullable=False)
-    due_date = db.Column(db.String(50), nullable=False)
+    amount = db.Column(db.Float, nullable=False)
     status = db.Column(db.Enum(DebitStatus), nullable=False)
+    direction = db.Column(db.Enum(PaymentType), nullable=False)
+    due_date = db.Column(db.String(50), nullable=False)
+
+
+
 
 
