@@ -20,6 +20,7 @@ class Loans(db.Model):
     account = db.Column(db.String(70), unique=False, nullable=False)
     weeks_payed = db.Column(db.Integer, nullable=False)
     start_date = db.Column(db.String(50), nullable=False)
+    last_debit = db.Column(db.String(50), nullable=False)
 
 
 class Payments(db.Model):

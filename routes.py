@@ -4,8 +4,6 @@ from flask import Blueprint, request
 from blackbox import do_transaction
 
 # Constants
-from models import PaymentStatus, PaymentType
-
 routes = Blueprint('routes', __name__)
 SRC_BANK_ACCOUNT = 'my_bank'
 NUMBER_OF_DEBIT_PAYMENTS = 12
@@ -13,21 +11,23 @@ NUMBER_OF_DEBIT_PAYMENTS = 12
 
 @routes.route('/do_loan', methods=['POST'])
 def do_loan():
-    from models import Loans, Payments
+    from models import Loans, Payments, PaymentStatus, PaymentType
     from server import db
-    now = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+    now = datetime.today().strftime('%Y-%m-%d')
     due_date = date.today()
     first_debit = due_date + timedelta(days=7)
     day_delta = timedelta(days=7)
+    last_debit = due_date + timedelta(weeks=12)
     body = request.json
     transaction_id = do_transaction(SRC_BANK_ACCOUNT, body['dst_bank_account'], body['amount'], PaymentType.CREDIT)
     # Insert the Loan details to the db
     new_loan = Loans(id=uuid.uuid4().hex, transaction_id=transaction_id, amount=body['amount'],
-                     account=body['dst_bank_account'], weeks_payed=0, start_date=now)
+                     account=body['dst_bank_account'], weeks_payed=0, start_date=now, last_debit=last_debit)
     db.session.add(new_loan)
     # Insert the Payments details to the db
     new_payment = Payments(id=uuid.uuid4().hex, loan_id=new_loan.id, transaction_id=transaction_id,
-                           amount=body['amount'], status=PaymentStatus.SUCCEEDED, direction=PaymentType.CREDIT, due_date=due_date)
+                           amount=body['amount'], status=PaymentStatus.SUCCEEDED, direction=PaymentType.CREDIT,
+                           due_date=due_date)
     db.session.add(new_payment)
     per_debit = divide_amount(body['amount'])
     # Create the debits
@@ -37,7 +37,7 @@ def do_loan():
                                status=PaymentStatus.PENDING, direction=PaymentType.DEBIT, due_date=next_debit)
         db.session.add(debits_rows)
     db.session.commit()
-    return "test"
+    return "Transaction Succeeded"
 
 
 def divide_amount(amount):

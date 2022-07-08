@@ -5,8 +5,14 @@ from routes import SRC_BANK_ACCOUNT
 from server import db
 
 
-def delay_payment(payment, load_id):
-    pass
+def delay_payment(payment, loan_id):
+    last_debit = date.today() + timedelta(weeks=12)
+    payment = Payments.query.filter_by(status=PaymentStatus.FAILED)
+    delay_debit = date.today() + timedelta(weeks=13)
+    for i in payment:
+        loan = Loans.query.filter_by(last_debit=last_debit)
+        i.due_date = delay_debit
+        loan.last_debit = delay_debit
 
 
 def collector():
@@ -22,7 +28,8 @@ def collector():
         except Exception as e:
             print(str(e))
             payment.status = PaymentStatus.FAILED
-            delay_payment(payment=payment, load_id=loan.id)
+            payment.transaction_id = None
+            delay_payment(payment=payment, loan_id=loan.id)
         finally:
             db.session.commit()
 
