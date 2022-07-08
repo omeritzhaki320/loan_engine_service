@@ -1,18 +1,29 @@
 from datetime import date, timedelta
-from models import Payments, Loans
+from blackbox import do_transaction
+from models import Payments, Loans, PaymentStatus
+from routes import SRC_BANK_ACCOUNT
 from server import db
 
-now = str(date.today() + timedelta(days=7))
-db_due_date = Payments.query.all()
+
+def delay_payment(payment, load_id):
+    pass
 
 
 def collector():
-    for i in db_due_date:
-        if i.due_date == now:
-            update_status = Payments.query.filter_by(due_date=i.due_date).first()
-            update_status.status = 'SUCCEEDED'
-            update_loan = Loans.query.filter_by(weeks_payed=0).first()
-            update_loan.weeks_payed = Loans.weeks_payed + 1
+    now = str(date.today() + timedelta(days=7))
+    payments = Payments.query.filter_by(due_date=now)
+    for payment in payments:
+        loan = Loans.query.filter_by(id=payment.loan_id).first()
+        try:
+            payment.transaction_id = do_transaction(src_bank=loan.account, dst_bank=SRC_BANK_ACCOUNT,
+                                                    amount=payment.amount, direction=payment.direction)
+            payment.status = PaymentStatus.SUCCEEDED
+            loan.weeks_payed += 1
+        except Exception as e:
+            print(str(e))
+            payment.status = PaymentStatus.FAILED
+            delay_payment(payment=payment, load_id=loan.id)
+        finally:
             db.session.commit()
 
 
