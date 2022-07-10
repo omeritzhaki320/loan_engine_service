@@ -1,5 +1,5 @@
 import uuid
-from datetime import date, timedelta, datetime
+from datetime import date, timedelta
 from flask import Blueprint, request
 from blackbox import do_transaction
 
@@ -13,7 +13,6 @@ NUMBER_OF_DEBIT_PAYMENTS = 12
 def do_loan():
     from models import Loans, Payments, PaymentStatus, PaymentType
     from server import db
-    # now = datetime.today().strftime('%Y-%m-%d')
     start_date = date.today()
     day_delta = timedelta(days=7)
     body = request.json

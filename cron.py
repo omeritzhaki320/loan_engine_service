@@ -1,10 +1,14 @@
 import uuid
+import csv
 from datetime import date, timedelta
 from blackbox import do_transaction
 from models import Payments, Loans, PaymentStatus, PaymentType
 from routes import SRC_BANK_ACCOUNT
 from server import db
 from sqlalchemy import desc
+
+# Constants
+now = str(date.today() + timedelta(days=7))
 
 
 def delay_payment(payment, loan_id):
@@ -15,8 +19,17 @@ def delay_payment(payment, loan_id):
     db.session.add(delay)
 
 
+def download_report():
+    columns = ['Transaction ID', 'Loan ID', 'Due Date', 'Direction', 'Status']
+    with open(f'{date.today()}.csv', 'w', newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(columns)
+        for i in Payments.query.filter_by(due_date=now):
+            payment = i.transaction_id, i.loan_id, i.due_date, i.direction, i.status
+            writer.writerow(payment)
+
+
 def collector():
-    now = str(date.today() + timedelta(days=14))
     payments = Payments.query.filter_by(due_date=now)
     for payment in payments:
         loan = Loans.query.filter_by(id=payment.loan_id).first()
@@ -30,8 +43,10 @@ def collector():
             payment.status = PaymentStatus.FAILED
             payment.transaction_id = None
             delay_payment(payment=payment, loan_id=loan.id)
+
         finally:
             db.session.commit()
+    download_report()
 
 
 if __name__ == '__main__':
