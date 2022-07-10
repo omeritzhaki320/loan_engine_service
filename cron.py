@@ -1,22 +1,22 @@
+import uuid
 from datetime import date, timedelta
 from blackbox import do_transaction
-from models import Payments, Loans, PaymentStatus
+from models import Payments, Loans, PaymentStatus, PaymentType
 from routes import SRC_BANK_ACCOUNT
 from server import db
+from sqlalchemy import desc
 
 
 def delay_payment(payment, loan_id):
-    last_debit = date.today() + timedelta(weeks=12)
-    payment = Payments.query.filter_by(status=PaymentStatus.FAILED)
-    delay_debit = date.today() + timedelta(weeks=13)
-    for i in payment:
-        loan = Loans.query.filter_by(last_debit=last_debit)
-        i.due_date = delay_debit
-        loan.last_debit = delay_debit
+    last_debit = Payments.query.filter_by(loan_id=loan_id).order_by(desc(Payments.due_date)).limit(1).first()
+    new_debit = last_debit.due_date + timedelta(weeks=1)
+    delay = Payments(id=uuid.uuid4().hex, loan_id=loan_id, transaction_id=None, amount=payment.amount,
+                     status=PaymentStatus.PENDING, direction=PaymentType.DEBIT, due_date=new_debit)
+    db.session.add(delay)
 
 
 def collector():
-    now = str(date.today() + timedelta(days=7))
+    now = str(date.today() + timedelta(days=14))
     payments = Payments.query.filter_by(due_date=now)
     for payment in payments:
         loan = Loans.query.filter_by(id=payment.loan_id).first()

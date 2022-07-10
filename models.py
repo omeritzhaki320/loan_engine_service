@@ -19,8 +19,7 @@ class Loans(db.Model):
     amount = db.Column(db.Float, nullable=False)
     account = db.Column(db.String(70), unique=False, nullable=False)
     weeks_payed = db.Column(db.Integer, nullable=False)
-    start_date = db.Column(db.String(50), nullable=False)
-    last_debit = db.Column(db.String(50), nullable=False)
+    start_date = db.Column(db.DateTime, nullable=False)
 
 
 class Payments(db.Model):
@@ -30,7 +29,7 @@ class Payments(db.Model):
     amount = db.Column(db.Float, nullable=False)
     status = db.Column(db.Enum(PaymentStatus), nullable=False)
     direction = db.Column(db.Enum(PaymentType), nullable=False)
-    due_date = db.Column(db.String(50), nullable=False)
+    due_date = db.Column(db.DateTime, nullable=False)
 
 
 
