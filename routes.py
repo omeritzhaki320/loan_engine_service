@@ -41,9 +41,9 @@ def do_loan():
 
 @routes.route('/pay_now', methods=['POST'])
 def pay_now():
-    start_date = date.today()
     from models import Loans, Payments, PaymentStatus, PaymentType
     from server import db
+    start_date = date.today()
     body = request.json
     payments = Payments.query.filter_by(status=PaymentStatus.PENDING, loan_id=body['loan_id']).all()
     left_to_pay = sum([payment.amount for payment in payments])
@@ -58,7 +58,11 @@ def pay_now():
                                    due_date=start_date)
             db.session.add(new_payment)
             loan.weeks_payed += 1
+            debits = Payments.query.filter_by(status=PaymentStatus.PENDING)
+            for debit in debits:
+                debit.status = PaymentStatus.CANCELED
             db.session.commit()
+
         except Exception as e:
             print(str(e))
         finally:
