@@ -11,6 +11,7 @@ class PaymentStatus(str, Enum):
     PENDING = 'PENDING'
     SUCCEEDED = 'SUCCEEDED'
     FAILED = 'FAILED'
+    CANCELED = 'CANCELED'
 
 
 class Loans(db.Model):

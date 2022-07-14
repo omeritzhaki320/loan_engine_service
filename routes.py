@@ -39,6 +39,32 @@ def do_loan():
     return "Transaction Succeeded"
 
 
+@routes.route('/pay_now', methods=['POST'])
+def pay_now():
+    start_date = date.today()
+    from models import Loans, Payments, PaymentStatus, PaymentType
+    from server import db
+    body = request.json
+    payments = Payments.query.filter_by(status=PaymentStatus.PENDING, loan_id=body['loan_id']).all()
+    left_to_pay = sum([payment.amount for payment in payments])
+    print(left_to_pay)
+    for payment in payments:
+        loan = Loans.query.filter_by(id=payment.loan_id).first()
+        try:
+            transaction_id = do_transaction(src_bank=loan.account, dst_bank=SRC_BANK_ACCOUNT,
+                                            amount=left_to_pay, direction=PaymentType.DEBIT)
+            new_payment = Payments(id=uuid.uuid4().hex, loan_id=body['loan_id'], transaction_id=transaction_id,
+                                   amount=left_to_pay, status=PaymentStatus.SUCCEEDED, direction=PaymentType.DEBIT,
+                                   due_date=start_date)
+            db.session.add(new_payment)
+            loan.weeks_payed += 1
+            db.session.commit()
+        except Exception as e:
+            print(str(e))
+        finally:
+            return 'test'
+
+
 def divide_amount(amount):
     weekly_debit = amount / NUMBER_OF_DEBIT_PAYMENTS
     return weekly_debit
