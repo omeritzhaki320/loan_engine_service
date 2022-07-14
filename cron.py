@@ -21,12 +21,12 @@ def delay_payment(payment, loan_id):
 
 
 def download_report():
-    columns = ['Transaction ID', 'Loan ID', 'Due Date', 'Direction', 'Status']
-    with open(f'{NOW}.csv', 'w', newline="") as f:
+    columns = ['Transaction ID', 'Loan ID', 'Due Date', 'Amount', 'Direction', 'Status']
+    with open(f'Do Loan - {NOW}.csv', 'w', newline="") as f:
         writer = csv.writer(f)
         writer.writerow(columns)
         for i in Payments.query.filter_by(due_date=NOW):
-            payment = i.transaction_id, i.loan_id, i.due_date, i.direction, i.status
+            payment = i.transaction_id, i.loan_id, i.due_date,i.amount, i.direction, i.status
             writer.writerow(payment)
         logger.info(f"A daily report is created {NOW}")
 

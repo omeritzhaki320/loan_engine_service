@@ -1,3 +1,4 @@
+import csv
 import uuid
 from datetime import date, timedelta
 from flask import Blueprint, request
@@ -7,6 +8,7 @@ from blackbox import do_transaction
 routes = Blueprint('routes', __name__)
 SRC_BANK_ACCOUNT = 'my_bank'
 NUMBER_OF_DEBIT_PAYMENTS = 12
+NOW = date.today()
 
 
 @routes.route('/do_loan', methods=['POST'])
@@ -29,7 +31,7 @@ def do_loan():
     db.session.add(new_payment)
     per_debit = divide_amount(body['amount'])
     # Create the debits
-    for week in range(1, NUMBER_OF_DEBIT_PAYMENTS):
+    for week in range(1, 13):
         next_debit = start_date + (week * day_delta)
         debits_rows = Payments(id=uuid.uuid4().hex, loan_id=new_loan.id, transaction_id=None, amount=per_debit,
                                status=PaymentStatus.PENDING, direction=PaymentType.DEBIT, due_date=next_debit)
@@ -43,11 +45,9 @@ def do_loan():
 def pay_now():
     from models import Loans, Payments, PaymentStatus, PaymentType
     from server import db
-    start_date = date.today()
     body = request.json
     payments = Payments.query.filter_by(status=PaymentStatus.PENDING, loan_id=body['loan_id']).all()
     left_to_pay = sum([payment.amount for payment in payments])
-    print(left_to_pay)
     for payment in payments:
         loan = Loans.query.filter_by(id=payment.loan_id).first()
         try:
@@ -55,18 +55,30 @@ def pay_now():
                                             amount=left_to_pay, direction=PaymentType.DEBIT)
             new_payment = Payments(id=uuid.uuid4().hex, loan_id=body['loan_id'], transaction_id=transaction_id,
                                    amount=left_to_pay, status=PaymentStatus.SUCCEEDED, direction=PaymentType.DEBIT,
-                                   due_date=start_date)
+                                   due_date=NOW)
             db.session.add(new_payment)
             loan.weeks_payed += 1
             debits = Payments.query.filter_by(status=PaymentStatus.PENDING)
+            download_report()
             for debit in debits:
                 debit.status = PaymentStatus.CANCELED
             db.session.commit()
-
         except Exception as e:
             print(str(e))
         finally:
             return 'test'
+
+
+def download_report():
+    from models import Payments
+    columns = ['Transaction ID', 'Loan ID', 'Due Date', 'Amount', 'Direction', 'Status']
+    with open(f'Pay Now - {NOW}.csv', 'w', newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(columns)
+        for i in Payments.query.filter_by(due_date=NOW):
+            payment = i.transaction_id, i.loan_id, i.due_date,i.amount, i.direction, i.status
+            writer.writerow(payment)
+        # logger.info(f"A daily report is created {NOW}")
 
 
 def divide_amount(amount):
