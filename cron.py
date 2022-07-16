@@ -8,7 +8,7 @@ from server import db, logger
 from sqlalchemy import desc
 
 # Constants
-NOW = str(date.today() + timedelta(days=7))
+NOW = str(date.today() + timedelta(weeks=1))
 
 
 def delay_payment(payment, loan_id):

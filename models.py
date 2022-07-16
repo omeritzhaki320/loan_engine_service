@@ -31,8 +31,3 @@ class Payments(db.Model):
     status = db.Column(db.Enum(PaymentStatus), nullable=False)
     direction = db.Column(db.Enum(PaymentType), nullable=False)
     due_date = db.Column(db.DateTime, nullable=False)
-
-
-
-
-

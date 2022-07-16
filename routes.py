@@ -58,10 +58,10 @@ def pay_now():
                                    due_date=NOW)
             db.session.add(new_payment)
             loan.weeks_payed += 1
-            debits = Payments.query.filter_by(status=PaymentStatus.PENDING)
-            download_report()
+            debits = Payments.query.filter_by(status=PaymentStatus.PENDING, loan_id=body['loan_id']).all()
             for debit in debits:
                 debit.status = PaymentStatus.CANCELED
+                download_report()
             db.session.commit()
         except Exception as e:
             print(str(e))
