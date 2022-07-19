@@ -1,7 +1,6 @@
 import uuid
-import csv
 from datetime import date, timedelta
-from blackbox import do_transaction
+from blackbox import do_transaction, download_report
 from models import Payments, Loans, PaymentStatus, PaymentType
 from routes import SRC_BANK_ACCOUNT
 from server import db, logger
@@ -20,36 +19,16 @@ def delay_payment(payment, loan_id):
     logger.info(f"New payment date added to debit/s: {loan_id}")
 
 
-def download_report():
-    columns = ['Transaction ID', 'Loan ID', 'Due Date', 'Amount', 'Direction', 'Status']
-    with open(f'Do Loan - {NOW}.csv', 'w', newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(columns)
-        for i in Payments.query.filter_by(due_date=NOW):
-            payment = i.transaction_id, i.loan_id, i.due_date,i.amount, i.direction, i.status
-            writer.writerow(payment)
-        logger.info(f"A daily report is created {NOW}")
-
-
 def collector():
     payments = Payments.query.filter_by(due_date=NOW)
     for payment in payments:
-        loan = Loans.query.filter_by(id=payment.loan_id).first()
-        try:
-            payment.transaction_id = do_transaction(src_bank=loan.account, dst_bank=SRC_BANK_ACCOUNT,
-                                                    amount=payment.amount, direction=payment.direction)
-            payment.status = PaymentStatus.SUCCEEDED
-            loan.weeks_payed += 1
-            logger.info(f"Payments were successfully collected")
-        except Exception as e:
-            print(str(e))
-            payment.status = PaymentStatus.FAILED
-            payment.transaction_id = None
-            delay_payment(payment=payment, loan_id=loan.id)
-            logger.info(f"The payment failed{payment.loan_id}")
-        finally:
-            db.session.commit()
-    download_report()
+        loan = Loans.query.filter_by(id=payment.loan_id).one()
+        payment.transaction_id = do_transaction(src_bank=loan.account, dst_bank=SRC_BANK_ACCOUNT,
+                                                amount=payment.amount, direction=payment.direction)
+    for i in download_report():
+        p = Payments.query.filter_by(transaction_id=i[0]).one()
+        p.status = i[1]
+    db.session.commit()
 
 
 if __name__ == '__main__':
