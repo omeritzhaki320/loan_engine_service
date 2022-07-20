@@ -2,12 +2,12 @@ import uuid
 from datetime import date, timedelta
 from blackbox import do_transaction, download_report
 from models import Payments, Loans, PaymentStatus, PaymentType
-from routes import SRC_BANK_ACCOUNT
+from payments_handler import SRC_BANK_ACCOUNT
 from server import db, logger
 from sqlalchemy import desc
 
 # Constants
-NOW = str(date.today() + timedelta(weeks=1))
+NOW = str(date.today() + timedelta(weeks=2))
 
 
 def delay_payment(payment, loan_id):
