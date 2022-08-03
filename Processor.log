@@ -1,0 +1,84 @@
+2022-07-24 09:21:25,756 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 21aafa9c648d4ace9bd550b32239842a 
+2022-07-24 09:21:25,756 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 21aafa9c648d4ace9bd550b32239842a 
+2022-07-24 10:36:21,521 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 60b59a80b1c74e1d99f28c7c2454273a 
+2022-07-24 10:36:21,521 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 60b59a80b1c74e1d99f28c7c2454273a 
+2022-07-24 10:36:22,153 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: dc9e5325fea54c8eaea2f3be8d5b2675 
+2022-07-24 10:36:22,153 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: dc9e5325fea54c8eaea2f3be8d5b2675 
+2022-07-24 10:36:22,689 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 3168aec9243e4e5683fa00b86cf74edc 
+2022-07-24 10:36:22,689 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 3168aec9243e4e5683fa00b86cf74edc 
+2022-07-24 10:36:23,204 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 6248db81c9fb47d5ad87889b202418ea 
+2022-07-24 10:36:23,204 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 6248db81c9fb47d5ad87889b202418ea 
+2022-07-24 16:16:02,327 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: ef6cb94b47e84df0b69da109e6c247d6 
+2022-07-24 16:16:02,327 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: ef6cb94b47e84df0b69da109e6c247d6 
+2022-07-24 16:16:02,916 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 89539ec163ca465685451148b210892d 
+2022-07-24 16:16:02,916 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 89539ec163ca465685451148b210892d 
+2022-07-24 16:16:03,943 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: c693e36fce28400d822c44076009c23e 
+2022-07-24 16:16:03,943 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: c693e36fce28400d822c44076009c23e 
+2022-07-24 19:46:03,392 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 89539ec163ca465685451148b210892d 
+2022-07-24 19:46:03,422 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 89539ec163ca465685451148b210892d 
+2022-07-24 19:46:03,438 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: c693e36fce28400d822c44076009c23e 
+2022-07-24 19:46:03,444 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: c693e36fce28400d822c44076009c23e 
+2022-07-24 19:46:03,455 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: ef6cb94b47e84df0b69da109e6c247d6 
+2022-07-24 19:46:03,460 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: ef6cb94b47e84df0b69da109e6c247d6 
+2022-07-24 22:31:18,314 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 24059155f9574e0a8eeab48083662e4e 
+2022-07-24 22:31:18,314 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 24059155f9574e0a8eeab48083662e4e 
+2022-07-24 22:31:19,006 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 3dd730e6dba74f16adfda3ce37245325 
+2022-07-24 22:31:19,006 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 3dd730e6dba74f16adfda3ce37245325 
+2022-07-24 22:33:24,225 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 24059155f9574e0a8eeab48083662e4e 
+2022-07-24 22:33:24,251 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 3dd730e6dba74f16adfda3ce37245325 
+2022-07-24 22:36:00,757 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 3dd730e6dba74f16adfda3ce37245325 
+2022-07-24 22:36:00,778 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 24059155f9574e0a8eeab48083662e4e 
+2022-07-24 22:37:55,526 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 9d474809c51c4facba01cb87da0089b3 
+2022-07-24 22:37:55,526 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 9d474809c51c4facba01cb87da0089b3 
+2022-07-24 22:37:56,285 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: d63b338aabe942f1a41767c09a98709a 
+2022-07-24 22:37:56,285 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: d63b338aabe942f1a41767c09a98709a 
+2022-07-24 22:40:50,013 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: d63b338aabe942f1a41767c09a98709a 
+2022-07-24 22:40:50,028 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 9d474809c51c4facba01cb87da0089b3 
+2022-07-24 22:46:18,697 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: c752c400be8a47a1b9e5ec1066724f5e 
+2022-07-24 22:46:18,697 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: c752c400be8a47a1b9e5ec1066724f5e 
+2022-07-24 22:46:22,810 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: d1803b3fd2fd45bebb0e852bac4dd1c6 
+2022-07-24 22:46:22,810 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: d1803b3fd2fd45bebb0e852bac4dd1c6 
+2022-07-24 22:47:42,185 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: e33ab30a28b640379e6f4b790b1758c7 
+2022-07-24 22:47:42,185 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: e33ab30a28b640379e6f4b790b1758c7 
+2022-07-24 22:47:42,786 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: d6612e6ffc364f42b7cdbaf9a7f58ab7 
+2022-07-24 22:47:42,786 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: d6612e6ffc364f42b7cdbaf9a7f58ab7 
+2022-07-24 22:48:26,383 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: d6612e6ffc364f42b7cdbaf9a7f58ab7 
+2022-07-24 22:49:07,291 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: d6612e6ffc364f42b7cdbaf9a7f58ab7 
+2022-07-24 22:49:07,308 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: e33ab30a28b640379e6f4b790b1758c7 
+2022-07-24 22:51:48,025 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: c5ea2b5b289a4d90948d42497e83877d 
+2022-07-24 22:51:48,025 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: c5ea2b5b289a4d90948d42497e83877d 
+2022-07-24 22:51:48,589 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 76e43eeefaf44e458632419b6b3b87a8 
+2022-07-24 22:51:48,589 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 76e43eeefaf44e458632419b6b3b87a8 
+2022-07-24 22:53:11,210 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: c5ea2b5b289a4d90948d42497e83877d 
+2022-07-24 22:53:11,227 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 76e43eeefaf44e458632419b6b3b87a8 
+2022-07-24 22:54:43,346 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: c5ea2b5b289a4d90948d42497e83877d 
+2022-07-24 22:54:43,365 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 76e43eeefaf44e458632419b6b3b87a8 
+2022-08-03 09:28:00,411 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 94f767f1d81942308fbdcb7a4a39ccf7 
+2022-08-03 09:28:00,411 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 94f767f1d81942308fbdcb7a4a39ccf7 
+2022-08-03 09:28:01,383 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 0882eb1bf272421c83afb7bddefd7623 
+2022-08-03 09:28:01,383 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 0882eb1bf272421c83afb7bddefd7623 
+2022-08-03 09:28:02,123 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: ce938ddb8fbf45f7a9c9034494147714 
+2022-08-03 09:28:02,123 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: ce938ddb8fbf45f7a9c9034494147714 
+2022-08-03 09:28:04,623 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 624fd7634e68446887da29ac9341710b 
+2022-08-03 09:28:04,623 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 624fd7634e68446887da29ac9341710b 
+2022-08-03 09:30:18,281 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 94f767f1d81942308fbdcb7a4a39ccf7 
+2022-08-03 09:30:18,299 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 94f767f1d81942308fbdcb7a4a39ccf7 
+2022-08-03 09:30:18,312 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: ce938ddb8fbf45f7a9c9034494147714 
+2022-08-03 09:30:18,325 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: ce938ddb8fbf45f7a9c9034494147714 
+2022-08-03 09:30:18,335 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 624fd7634e68446887da29ac9341710b 
+2022-08-03 09:30:18,355 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 624fd7634e68446887da29ac9341710b 
+2022-08-03 09:30:18,363 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 0882eb1bf272421c83afb7bddefd7623 
+2022-08-03 09:30:18,371 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 0882eb1bf272421c83afb7bddefd7623 
+2022-08-03 09:37:49,950 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 87b915ab41494525a2f4bd6cc57d383c 
+2022-08-03 09:37:49,950 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 87b915ab41494525a2f4bd6cc57d383c 
+2022-08-03 09:37:50,927 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 5d99baf85ccf4321adc284bced88e170 
+2022-08-03 09:37:50,927 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 5d99baf85ccf4321adc284bced88e170 
+2022-08-03 09:39:03,799 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: 87b915ab41494525a2f4bd6cc57d383c 
+2022-08-03 10:34:31,510 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 8f29e080beb1404f9805339285c068a4 
+2022-08-03 10:34:31,510 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 8f29e080beb1404f9805339285c068a4 
+2022-08-03 10:34:32,256 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: a0e323f3f9c7421693098a916b607c2e 
+2022-08-03 10:34:32,256 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: a0e323f3f9c7421693098a916b607c2e 
+2022-08-03 10:34:32,886 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 4ea4835ab8e642f2a8dbf68448634422 
+2022-08-03 10:34:32,886 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: The loan was divided into 12 weeks.Loan ID: 4ea4835ab8e642f2a8dbf68448634422 
+2022-08-03 10:39:29,512 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: a0e323f3f9c7421693098a916b607c2e 
+2022-08-03 10:41:44,577 /Users/omeritzhaki/Fundbox/Bootcamp/server.py INFO: New payment date added to debit/s: a0e323f3f9c7421693098a916b607c2e 

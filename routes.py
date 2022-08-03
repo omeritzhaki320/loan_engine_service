@@ -1,11 +1,7 @@
-import uuid
-from datetime import date, timedelta
-from flask import Blueprint, request
-from blackbox import do_transaction
+from flask import Blueprint
 from payments_handler import do_loan_handler, pay_now_handler
 
 # Constants
-
 routes = Blueprint('routes', __name__)
 
 

@@ -25,9 +25,15 @@ def collector():
         loan = Loans.query.filter_by(id=payment.loan_id).one()
         payment.transaction_id = do_transaction(src_bank=loan.account, dst_bank=SRC_BANK_ACCOUNT,
                                                 amount=payment.amount, direction=payment.direction)
+        payment.status = PaymentStatus.PENDING
     for i in download_report():
         p = Payments.query.filter_by(transaction_id=i[0]).one()
         p.status = i[1]
+        if i[1] == PaymentStatus.SUCCEEDED:
+            loan = Loans.query.filter_by(id=p.loan_id).first()
+            loan.weeks_payed += 1
+        elif i[1] == PaymentStatus.FAILED:
+            delay_payment(payment=p, loan_id=p.loan_id)
     db.session.commit()
 
 
