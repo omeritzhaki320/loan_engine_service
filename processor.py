@@ -1,8 +1,7 @@
-import uuid
 import csv
+import uuid
 from datetime import date, timedelta
 
-# Constants
 NOW = str(date.today() + timedelta(weeks=2))
 
 

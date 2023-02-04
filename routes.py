@@ -1,7 +1,7 @@
 from flask import Blueprint
-from payments_handler import do_loan_handler, pay_now_handler
 
-# Constants
+from payments_engine import do_loan_handler, pay_now_handler
+
 routes = Blueprint('routes', __name__)
 
 
@@ -13,5 +13,3 @@ def do_loan():
 @routes.route('/pay_now', methods=['POST'])
 def pay_now():
     return pay_now_handler()
-
-

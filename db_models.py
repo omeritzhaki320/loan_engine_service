@@ -1,5 +1,6 @@
 from enum import Enum
-from server import db
+
+from app import db
 
 
 class PaymentType(str, Enum):
@@ -11,7 +12,7 @@ class PaymentStatus(str, Enum):
     PENDING = 'PENDING'
     SUCCEEDED = 'SUCCEEDED'
     FAILED = 'FAILED'
-    CANCELED = 'CANCELED'
+    CANCELLED = 'CANCELLED'
 
 
 class Loans(db.Model):
